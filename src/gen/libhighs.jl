@@ -1009,6 +1009,21 @@ function Highs_getObjectiveValue(highs)
 end
 
 """
+    Highs_getMipDualBound(highs)
+
+Get the dual bound value.
+
+### Parameters
+* `highs`: a pointer to the Highs instance
+
+### Returns
+the dual bound value
+"""
+function Highs_getMipDualBound(highs)
+    ccall((:Highs_getMipDualBound, libhighs), Cdouble, (Ptr{Cvoid},), highs)
+end
+
+"""
     Highs_getBasicVariables(highs, basic_variables)
 
 Get the indices of the rows and columns that make up the basis matrix of a basic feasible solution.

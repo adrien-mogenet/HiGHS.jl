@@ -1933,6 +1933,10 @@ function MOI.get(model::Optimizer, attr::MOI.ObjectiveValue)
     return Highs_getObjectiveValue(model)
 end
 
+function MOI.get(model::Optimizer, attr::MOI.MipDualBound)
+    return Highs_getMipDualBound(model)
+end
+
 function MOI.get(model::Optimizer, attr::MOI.DualObjectiveValue)
     MOI.check_result_index_bounds(model, attr)
     return MOI.Utilities.get_fallback(model, attr, Float64)
